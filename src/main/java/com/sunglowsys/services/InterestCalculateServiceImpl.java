@@ -7,15 +7,18 @@ import org.springframework.stereotype.Service;
 public class InterestCalculateServiceImpl implements InterestCalculateService{
 
     @Override
-    public double simpleInterestCalculate(InterestCaluculate caluculate) {
+    public InterestCaluculate simpleInterestCalculate(InterestCaluculate caluculate) {
         double simpleInterest = (caluculate.getPrincipleAmount() * caluculate.getRateOfInterest() * caluculate.getDuration())/100;
-        return simpleInterest;
+        double result = simpleInterest+caluculate.getPrincipleAmount();
+        caluculate.setTotalAmount(result);
+      return caluculate;
     }
 
     @Override
-    public double compoundInterestCalculate(InterestCaluculate caluculate) {
+    public InterestCaluculate compoundInterestCalculate(InterestCaluculate caluculate) {
         double compoundInterest = (caluculate.getPrincipleAmount() * Math.pow((1 + caluculate.getRateOfInterest() / 100),
                 caluculate.getDuration())) -caluculate.getPrincipleAmount();
-        return compoundInterest;
+        caluculate.setTotalAmount(compoundInterest);
+        return caluculate;
     }
 }

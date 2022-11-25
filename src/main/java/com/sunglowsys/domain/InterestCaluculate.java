@@ -6,6 +6,9 @@ public class InterestCaluculate {
     private double duration;
     private double totalAmount;
 
+    public InterestCaluculate() {
+    }
+
     public InterestCaluculate(double principleAmount, double rateOfInterest, double duration, double totalAmount) {
         this.principleAmount = principleAmount;
         this.rateOfInterest = rateOfInterest;
@@ -41,7 +44,8 @@ public class InterestCaluculate {
         return totalAmount;
     }
 
-    public void setTotalAmount(double totalAmount) {
+    public double setTotalAmount(double totalAmount) {
         this.totalAmount = totalAmount;
+        return 0;
     }
 }

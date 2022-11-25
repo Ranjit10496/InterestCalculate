@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+
+<body>
+
+    <table align="center">
+        <h1 align="center">Interest Calculator</h1>
+
+        <tr>
+            <td>
+                <button>
+                    <a th:href="@{/compound/calculate}">Compound Interest</a>
+                </button>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <button>
+                    <a th:href="@{/simple/calculate}">Simple Interest</a>
+                </button>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

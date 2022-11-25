@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+      <form th:action="@{/simple/calculate}" th:object="${interest}" method="post">
+          <table align="center">-
+            <tr>
+                <td><label>Amount:</label></td>
+                <td><input type="number"th:field="*{principleAmount}"placeholder="0.0"></td>
+            </tr>
+            <tr>
+              <td><label>Rate of Interest:</label></td>
+              <td><input type="number"th:field="*{rateOfInterest}" placeholder="0.0"></td>
+            </tr>
+            <tr>
+              <td><label>Duration:</label></td>
+              <td><input type="number"th:field="*{duration}" placeholder="0.0"></td>
+            </tr>
+            <tr>
+              <td>
+                <h3>Total Amount:</h3>
+              </td>
+              <td>
+                <h3 th:text=${interest.getTotalAmount}></h3>
+              </td>
+            </tr>
+            <tr>
+
+              <td align="center">
+                  <input type="submit" value="Calculate">
+              </td>
+            </tr>
+
+          </table>
+
+      </form>
+
+</body>
+</html>
