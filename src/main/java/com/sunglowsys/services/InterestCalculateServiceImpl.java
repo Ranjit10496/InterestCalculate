@@ -18,7 +18,8 @@ public class InterestCalculateServiceImpl implements InterestCalculateService{
     public InterestCaluculate compoundInterestCalculate(InterestCaluculate caluculate) {
         double compoundInterest = (caluculate.getPrincipleAmount() * Math.pow((1 + caluculate.getRateOfInterest() / 100),
                 caluculate.getDuration())) -caluculate.getPrincipleAmount();
-        caluculate.setTotalAmount(compoundInterest);
+        double result = compoundInterest+caluculate.getPrincipleAmount();
+        caluculate.setTotalAmount(result);
         return caluculate;
     }
 }

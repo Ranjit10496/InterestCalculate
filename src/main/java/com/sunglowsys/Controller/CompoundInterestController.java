@@ -10,21 +10,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/simple")
-public class SimpleInterestController {
+@RequestMapping("/compound")
+public class CompoundInterestController {
     private final InterestCalculateService calculateService;
 
-    public SimpleInterestController(InterestCalculateService calculateService) {
+    public CompoundInterestController(InterestCalculateService calculateService) {
         this.calculateService = calculateService;
     }
-
     @GetMapping("/calculate")
-    public ModelAndView getSimple() {
-        return new ModelAndView("simpleInterest", "interest", new InterestCaluculate());
+    public ModelAndView getCompound() {
+        return new ModelAndView("compoundInterest", "interest", new InterestCaluculate());
     }
-
     @PostMapping("/calculate")
-    public ModelAndView simpleInterest(@ModelAttribute InterestCaluculate caluculate) {
-        return new ModelAndView("simpleInterest", "interest", calculateService.simpleInterestCalculate(caluculate));
+    public ModelAndView compoundInterest(@ModelAttribute InterestCaluculate caluculate) {
+        return new ModelAndView("compoundInterest","interest", calculateService.compoundInterestCalculate(caluculate));
     }
 }
